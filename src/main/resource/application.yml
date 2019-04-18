@@ -1,0 +1,37 @@
+server:
+  port: 8787
+  servlet:
+    session:
+      timeout: 360
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/bbs?useUnicode=true&characterEncoding=utf8
+    username: wsy
+    password: wsy
+    driver-class-name:  com.mysql.jdbc.Driver
+  redis:
+    database: 0 #Redis数据库索引（默认为0）
+    host: localhost #Redis服务器地址
+    port: 6379 #Redis服务器连接端口
+    password:  #Redis服务器连接密码（默认为空）
+    timeout: 0 #连接超时时间（毫秒）    jedis:
+      pool:
+        max-active: 5000  #连接池最大连接数（使用负值表示没有限制）
+        max-wait: 2000    #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 1000    #连接池中的最大空闲连接
+        min-idle: 1       #连接池中的最小空闲连接
+mybatis-plus:
+  type-aliases-package: WsyBBs.*.entity
+  mapper-locations: classpath:/mapper/**/*-mapper.xml
+  global-config:
+    id-type: 5
+    field-strategy: 2
+    auto-set-db-type: true
+    db-column-underline: false
+    refresh-mapper: true
+    logicDeleteValue: 1
+    logicNotDeleteValue: 0
+    sqlInjector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+  configuration:
+     map-underscore-to-camel-case: true
+     cache-enabled: false
