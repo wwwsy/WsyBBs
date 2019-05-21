@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="WsyBBs.acount.mapper.AcountBackMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="WsyBBs.acount.entity.AcountBack">
+        <id column="ab_id" property="abId" />
+        <result column="ab_num" property="abNum" />
+        <result column="ab_description" property="abDescription" />
+        <result column="ab_time" property="abTime" />
+        <result column="ab_back" property="abBack" />
+        <result column="ab_backTime" property="abBacktime" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="WsyBBs.acount.mapper.AcountMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="WsyBBs.acount.entity.Acount">
+        <id column="acount_id" property="acountId" />
+        <result column="acount_num" property="acountNum" />
+        <result column="acount_date" property="acountDate" />
+        <result column="acount_description" property="acountDescription" />
+        <result column="status" property="status" />
+        <result column="acount_ack" property="acountAck" />
+        <result column="acount_ackTime" property="acountAcktime" />
+        <result column="acount_record" property="acountRecord" />
+        <result column="acount_recordTime" property="acountRecordtime" />
+    </resultMap>
+
+</mapper>
