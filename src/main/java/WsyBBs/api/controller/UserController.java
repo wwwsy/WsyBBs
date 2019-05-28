@@ -47,7 +47,7 @@ public class UserController {
 	@SuppressWarnings("rawtypes")
 	@PostMapping("/login")
 	@UnAuth
-	public ResultValue login(@RequestBody Map params) {
+	public ResultValue<UserModel> login(@RequestBody Map params) {
 		String username = MapUtils.getString(params, "username");
 		String password = MapUtils.getString(params, "password");
 		User user = userService.selectOne(new EntityWrapper<User>().eq("user_name", username));
@@ -62,7 +62,7 @@ public class UserController {
 				userModel.setToken(token);
 				userModel.setUser(user);
 				redisUtil.lSet(token, userModel, 600);
-				return new ResultValue<String>(token, 1);
+				return new ResultValue<UserModel>(userModel, 1);
 			} else {
 				return new ResultValue(0, "用户名或密码错误");
 			}

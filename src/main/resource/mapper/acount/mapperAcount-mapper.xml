@@ -14,5 +14,17 @@
         <result column="acount_record" property="acountRecord" />
         <result column="acount_recordTime" property="acountRecordtime" />
     </resultMap>
-
+    <select id="queryByCondition" resultType="WsyBBs.acount.entity.Acount" parameterType="WsyBBs.api.vo.acount.AcountCondition">
+        select * from Acount where 1 = 1 
+        <if test="startDate != null and startDate !='' and endDate != null and endDate != ''">
+            and acount_date &gt;= #{startDate} and acount_date &lt;= #{endDate} 
+        </if>
+        <if test="userId != null and userId != ''">
+            and acount_record = #{userId}
+        </if>
+        <if test="des != null and des != ''">
+            and acount_description like #{des}
+        </if>
+    </select>
+    
 </mapper>

@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class CommonVo {
-	private String token;
-	private Integer page;
-	private Integer size;
+	private Integer page = 1;
+	private Integer size = 10;
 }

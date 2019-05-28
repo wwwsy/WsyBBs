@@ -37,7 +37,7 @@ public class RightInterceptor {
 		if (verify(method)) {
 			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
 					.getRequest();
-			String token = request.getParameter("token");
+			String token = request.getHeader("token");
 			if (token == null) {
 				return new ResultValue(-1, "非法登录");
 			}
@@ -48,8 +48,6 @@ public class RightInterceptor {
 			boolean flag = false;
 			RequestMapping annotation = point.getTarget().getClass().getAnnotation(RequestMapping.class);
 			sb.append(annotation.value()[0]);
-			RequestMapping mapping = method.getAnnotation(RequestMapping.class);
-
 			sb.append(method.getAnnotation(RequestMapping.class).value()[0]);
 			List<Auth> auths = userModel.getAuth();
 			for (Iterator<Auth> iterator = auths.iterator(); iterator.hasNext();) {
